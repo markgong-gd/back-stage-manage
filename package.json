@@ -68,11 +68,23 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "commitmsg": "validate-commit-msg",
     "commit": "git-cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "format": "prettier --write src/**/*.ts{,x}",
     "lint": "tsc --noEmit && eslint src/**/*.ts{,x}"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "validate-commit-msg"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,less,md}": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ]
   },
   "browserslist": {
     "production": [
@@ -156,19 +168,6 @@
     "less-loader": "^7.0.0",
     "lint-staged": "^10.2.13",
     "prettier": "^2.1.1",
-    "validate-commit-msg": "^2.14.0"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "validate-commit-msg",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-       "prettier --write",
-       "eslint",
-       "git add"
-     ]
-   }
+    "validate-commit-msg": "^2.11.1"
+  }
 }
