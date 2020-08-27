@@ -13,7 +13,7 @@ ReactDOM.render(
   <ConfigProvider locale={zhCN}>
     <App />
   </ConfigProvider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

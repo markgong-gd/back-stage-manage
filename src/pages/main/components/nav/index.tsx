@@ -1,48 +1,42 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import {
-    DesktopOutlined,
-    PieChartOutlined,
-    FileOutlined,
-    TeamOutlined,
-    UserOutlined,
-} from '@ant-design/icons';
+import { DesktopOutlined, PieChartOutlined, FileOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 const { useState } = React;
 
 export default function Nav() {
-    const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
-    const onCollapse = (collapsed: boolean) => {
-        console.log(collapsed);
-        setCollapsed(collapsed);
-    };
+  const onCollapse = (collapse: boolean) => {
+    console.log(collapse);
+    setCollapsed(collapse);
+  };
 
-    return (
-        <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-            {/* <a>
+  return (
+    <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+      {/* <a>
                 <img className="ant-layout-logo" src={logo}></img>
             </a> */}
-            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                <Menu.Item key="1" icon={<PieChartOutlined />}>
-                    Option 1
-                </Menu.Item>
-                <Menu.Item key="2" icon={<DesktopOutlined />}>
-                    Option 2
-                </Menu.Item>
-                <SubMenu key="sub1" icon={<UserOutlined />} title="User">
-                    <Menu.Item key="3">Tom</Menu.Item>
-                    <Menu.Item key="4">Bill</Menu.Item>
-                    <Menu.Item key="5">Alex</Menu.Item>
-                </SubMenu>
-                <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
-                    <Menu.Item key="6">Team 1</Menu.Item>
-                    <Menu.Item key="8">Team 2</Menu.Item>
-                </SubMenu>
-                <Menu.Item key="9" icon={<FileOutlined />} />
-            </Menu>
-        </Sider>
-    );
+      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+        <Menu.Item key="1" icon={<PieChartOutlined />}>
+          Option 1
+        </Menu.Item>
+        <Menu.Item key="2" icon={<DesktopOutlined />}>
+          Option 2
+        </Menu.Item>
+        <SubMenu key="sub1" icon={<UserOutlined />} title="User">
+          <Menu.Item key="3">Tom</Menu.Item>
+          <Menu.Item key="4">Bill</Menu.Item>
+          <Menu.Item key="5">Alex</Menu.Item>
+        </SubMenu>
+        <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
+          <Menu.Item key="6">Team 1</Menu.Item>
+          <Menu.Item key="8">Team 2</Menu.Item>
+        </SubMenu>
+        <Menu.Item key="9" icon={<FileOutlined />} />
+      </Menu>
+    </Sider>
+  );
 }

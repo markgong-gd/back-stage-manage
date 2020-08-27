@@ -1,0 +1,4 @@
+node_modules
+build
+serviceWorker.ts
+react-app-env.d.ts

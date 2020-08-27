@@ -4,9 +4,7 @@ import Container from './components/container';
 import './index.less';
 
 function App() {
-  return (
-    <Container/>
-  );
+  return <Container />;
 }
 
 export default App;
