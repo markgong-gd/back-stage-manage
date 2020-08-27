@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import 'antd/dist/antd.css';
+import { ConfigProvider } from 'antd';
+// 由于 antd 组件的默认文案是英文，所以需要修改为中文
+import zhCN from 'antd/es/locale/zh_CN';
+
+import App from './pages/main';
+import './index.less';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ConfigProvider locale={zhCN}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </ConfigProvider>,
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change
