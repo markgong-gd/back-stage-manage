@@ -28,15 +28,13 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module',
         project: './tsconfig.json',
+        extraFileExtensions: [
+            '.less'
+        ]
     },
     rules: {
         'linebreak-style': 'off',
-        'prettier/prettier': [
-            'error',
-            {
-                endOfLine: 'auto',
-            },
-        ],
+        'prettier/prettier': 'error',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/dot-notation': 'off',
         '@typescript-eslint/lines-between-class-members': 'off',
