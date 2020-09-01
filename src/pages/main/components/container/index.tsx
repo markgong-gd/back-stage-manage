@@ -1,16 +1,20 @@
 import React from 'react';
 import { Layout, Breadcrumb } from 'antd';
 
+import Header from '../header';
 import Nav from '../nav';
 
-const { Header, Content, Footer } = Layout;
+const { Content, Footer } = Layout;
+const { useState } = React;
 
 export default function Container() {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Nav />
+      <Nav collapsed={collapsed} />
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }} />
+        <Header setCollapsed={setCollapsed} collapsed={collapsed} />
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>
@@ -20,7 +24,7 @@ export default function Container() {
             Bill is a cat.
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+        <Footer style={{ textAlign: 'center' }}>This Project ©2020 Created by gongding</Footer>
       </Layout>
     </Layout>
   );
