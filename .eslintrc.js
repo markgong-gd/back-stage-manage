@@ -38,6 +38,8 @@ module.exports = {
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/dot-notation': 'off',
         '@typescript-eslint/lines-between-class-members': 'off',
-        'no-console': 'off'
+        'no-console': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        'no-else-return': 'off'
     }
 };

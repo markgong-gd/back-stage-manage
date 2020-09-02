@@ -1,10 +1,11 @@
 import React from 'react';
-import { Layout, Breadcrumb } from 'antd';
+import { Layout } from 'antd';
 import { Switch, Route } from 'react-router-dom';
 
 import menuConfig, { MenuRoute } from '@config/menu';
 import Header from '../header';
 import Nav from '../nav';
+import BreadNav from './bread-nav';
 
 const { Content, Footer } = Layout;
 const { useState } = React;
@@ -24,13 +25,7 @@ export default function Container() {
       <Layout className="site-layout">
         <Header setCollapsed={setCollapsed} collapsed={collapsed} />
         <Content style={{ margin: '0 16px' }}>
-          {/* <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb> */}
-          {/* <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-            Bill is a cat.
-          </div> */}
+          <BreadNav />
           <Switch>
             {menuConfig.map((menu: MenuRoute) => {
               return renderRouteItem(menu);

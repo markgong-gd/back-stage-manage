@@ -19,6 +19,16 @@ const currentKey = window.location.hash.slice(1);
 export default function Nav({ collapsed }: Props) {
   const [activeKey, setActiveKey] = useState(currentKey);
 
+  function sideBarMenu(list: MenuRoute) {
+    const { icon, path, name } = list;
+    const Icon = icon as ReactComponentLike;
+    return (
+      <Menu.Item key={path} icon={<Icon className="menu-item-icon" />} onClick={() => setActiveKey(path as string)}>
+        <Link to={path as string}>{name}</Link>
+      </Menu.Item>
+    );
+  }
+
   return (
     <Sider collapsible collapsed={collapsed} trigger={null} style={{ width: collapsed ? 80 : 200 }}>
       <a className="ant-layout-logo-link" href="/">
@@ -26,16 +36,7 @@ export default function Nav({ collapsed }: Props) {
       </a>
       <Menu theme="dark" selectedKeys={[activeKey]} mode="inline">
         {menuConfig.map((menu: MenuRoute) => {
-          const Icon = menu.icon as ReactComponentLike;
-          return (
-            <Menu.Item
-              key={menu.path}
-              icon={<Icon className="menu-item-icon" />}
-              onClick={() => setActiveKey(menu.path as string)}
-            >
-              <Link to={menu.path as string}>{menu.name}</Link>
-            </Menu.Item>
-          );
+          return sideBarMenu(menu);
         })}
       </Menu>
     </Sider>
