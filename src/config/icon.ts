@@ -4,6 +4,7 @@ import {
   UserOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  HomeOutlined,
 } from '@ant-design/icons';
 
 const icons = {
@@ -12,6 +13,7 @@ const icons = {
   UserOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  HomeOutlined,
 };
 
 export default icons;
