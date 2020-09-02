@@ -1,3 +1,4 @@
+import Home from '@pages/home';
 import ChatRoom from '@pages/chat-room';
 import GoShop from '@pages/go-shop';
 
@@ -5,7 +6,7 @@ import icons from '@config/icon';
 
 import { ReactComponentLike } from 'prop-types';
 
-const { AudioOutlined, ShoppingCartOutlined } = icons;
+const { AudioOutlined, ShoppingCartOutlined, HomeOutlined } = icons;
 
 export type MenuRoute = {
   name: string;
@@ -14,13 +15,20 @@ export type MenuRoute = {
   showInMenu?: boolean;
   component?: ReactComponentLike;
   child?: MenuRoute[];
-  exactly?: boolean;
+  exact?: boolean;
   strict?: boolean;
   authority?: object; // 用户鉴权
   onClick?: Function;
 };
 
 const menu: MenuRoute[] = [
+  {
+    name: '主页',
+    icon: HomeOutlined,
+    path: '/',
+    component: Home,
+    exact: true,
+  },
   {
     name: '聊天室',
     icon: AudioOutlined,
