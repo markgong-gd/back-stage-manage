@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ReactComponentLike } from 'prop-types';
 
 import menuConfig, { MenuRoute } from '@config/menu';
@@ -9,7 +9,7 @@ import './index.less';
 
 const { Sider } = Layout;
 // const { SubMenu } = Menu;
-const { useState } = React;
+const { useState, useEffect } = React;
 
 interface Props {
   collapsed: boolean;
@@ -18,6 +18,7 @@ interface Props {
 const currentKey = window.location.hash.slice(1);
 export default function Nav({ collapsed }: Props) {
   const [activeKey, setActiveKey] = useState(currentKey);
+  const { pathname } = useLocation();
 
   function sideBarMenu(list: MenuRoute) {
     const { icon, path, name } = list;
@@ -28,6 +29,10 @@ export default function Nav({ collapsed }: Props) {
       </Menu.Item>
     );
   }
+
+  useEffect(() => {
+    setActiveKey(pathname);
+  }, [pathname]);
 
   return (
     <Sider collapsible collapsed={collapsed} trigger={null} style={{ width: collapsed ? 80 : 200 }}>
